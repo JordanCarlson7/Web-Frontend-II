@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W02 Team Activity</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input type="number" name="user-input" id="user-input" placeholder="Type something here!"><br>
+    <input type="number" name="second-number" id="second-number"><br>
+    <label>Step 1 and 2: </label><button onclick="displayInput()">Click Me!</button><br>
+    <label>Step 3: </label><button onclick="addThemUp()">+</button><br>
+    <label>Stretch 1: </label><select id="operation">
+        <option value="addition">+</option>
+        <option value="multipy">*</option>
+        <option value="subtraction">-</option>
+    </select>
+    <button id="math" onclick="handlesMath()">Do the math!</button>
+    <div id="display"></div>
+    
+
+    <script>
+        function displayInput() {
+            // Grab the users input
+            const num = document.getElementById("user-input").value;
+
+            const sumNum = sum(Number(num));
+            
+            // Display the result to the page
+            document.getElementById("display").innerText = sumNum;
+        }
+
+        function sum(number) {
+            let sum = 0;
+            //count down number and add it to sum until number = 0
+            while (number > 0){
+                sum += number;
+                number--;
+            }
+            return sum;
+        }
+
+        function addThemUp(sum) {
+            var num = document.getElementById("user-input").value;
+
+            var addTwo = document.getElementById("second-number").value;
+
+            document.getElementById("display").innerText = Number(num) + Number(addTwo);
+        }
+        
+        function handlesMath(){
+            var num1 = Number(document.getElementById("user-input").value);
+            var num2 = Number(document.getElementById("second-number").value);
+            var operation = Function(document.getElementById("operation").value);
+
+
+            var selectedOperation = new Function(function (num1, num2){
+            var addi = num1 + num2;
+            return addi;
+        });
+
+
+            var result = arithmetic(num1, num2, operation);
+            document.getElementById("display").innerText = result;
+        }
+        
+        function arithmetic(num1, num2, operation){
+            
+            if(typeof(operation) === 'function'){
+                console.log(operation);
+               // operation();
+            }
+
+            return operation(num1,num2);
+        }
+         //addition function 
+         function addition(num1, num2){
+            var addi = num1 + num2;
+            return addi;
+        }
+        //Math function multiplication
+        function multiply(num1, num2){
+            var mult = num1 * num2;
+            return mult;
+        }
+    
+    
+        // Math function substraction 
+        function subtraction(num1, num2) {
+           var sub = num1 - num2;
+           return sub;
+           
+       }
+    
+        </script>
+</body>
+
+</html>

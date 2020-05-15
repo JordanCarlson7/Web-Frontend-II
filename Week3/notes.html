@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="#">
+        <script type="text/javascript" src="#"></script>
+    </head>
+    <body>
+        <a href="index.html">Back</a>
+        <h1>Notes</h1>
+
+    <h1>Ch 5. Objects</h1>
+        <ul>
+            <li> in keyword allows knowledge of whether an object contains a property</li>
+            <code>'city' in superman; output false</code>
+        
+
+            <li><code>for(const key in superman)</code>Use this to access every property. Key is const but is redefined every time there is a new iteration through the loop. It will not change during the course of the loop. </li>
+	
+            <li>Objects are copied by reference, what you change in one object is also changed in the other you copied from</li>
+            <li> namespaces to prevent name overlap</li>
+        </ul>
+
+    <h1>Ch 6. DOM</h1>
+	    <ul>
+            <li>You can add change and adjust the DOM dynamically, even attributes of elements</li>
+	        <li>Use classList to edit classes of an element. Otherwise you may overwrite all classes when just using .class</li>
+
+            <li> 
+                <ul>
+                    <h2>Dynamic Markup</h2>
+                    <li>1.		Create the element node</li>
+                    <li>2.	Create the text node</li>
+                    <li>3.	Append the text node to the element node</li>
+                    <li>4.	const flash = document.createElement('li');</li>
+                    <li>5.	flash.textContent = 'Flash';</li>
+                </ul>
+            <li><code>script</code> dynamically added into <code>.innerHTML</code> of elements will not run/execute for safety</li>
+            <li> classes, not individual styles, have the class already defined and add it to the classes of an element. </li>
+        </ul>
+
+    <h1>Ch 7. Events</h1>
+        <ul>
+            <li>Bubbling starts from element clicked on and moves up the DOM,</li>
+            <li>Capturing starts at the outermost element clicked on and moves inside that element to the next internal element. </li>
+            <li>Dynamic pages can use event listeners to obtain a dynamic and changing view from page to page or the same page. </li>
+        </ul>
+        
+        </body>
+</html>
+
+
+
