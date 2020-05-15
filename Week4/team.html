@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Tic-Tac-Toe</title>
+        <meta name="description" content="Tic-Tac-Toe game">
+        <style>
+            .board {
+                width: 40%;
+                margin: auto;
+            }
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+            .cell {
+               /*  border: 1px solid black; */
+                width: 50px;
+                height: 50px;
+            }
+
+             .cell:nth-child(1) {
+                border-right: 1px solid black;
+            } 
+            
+            .cell:nth-child(2) {
+                border-right: 1px solid black;
+            } 
+
+            .one, .two {
+                border-bottom: 1px solid black;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <div class="board">
+            <div class="row one">
+                <div class="cell" id="0" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="1" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="2" ontouchend="markCell(this.id)"></div>
+            </div>
+            <div class="row two">
+                <div class="cell" id="3" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="4" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="5" ontouchend="markCell(this.id)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" id="6" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="7" ontouchend="markCell(this.id)"></div>
+                <div class="cell" id="8" ontouchend="markCell(this.id)"></div>
+            </div>
+        </div>
+        
+        <button id="reset" onclick="clearBoard()"> Reset </button>
+
+   
+        <script>
+            var currentPlayer = 1;
+             
+            function clearBoard() {
+                let cells = document.getElementsByClassName('cell');
+                console.log(cells.length);
+                    for (var i = 0; i < cells.length; i++) {
+                        // console.log("Touch!");
+                        cells[i].innerText = "";
+                    } 
+            }
+            
+            function markCell(id) {
+                console.log(id)
+
+                if(currentPlayer === 1) {
+                    document.getElementById(id).innerText = "X";
+                    currentPlayer = 2;
+                } else if (currentPlayer === 2) {
+                    document.getElementById(id).innerText = "O";
+                    currentPlayer = 1;
+                }
+            }
+
+            
+
+
+        </script> 
+    </body>
+</html>
