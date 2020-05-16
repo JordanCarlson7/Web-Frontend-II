@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 04</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <style>
+            .error{
+                background: #f99;
+                border: #900 1px solid;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Practice Sandbox</h1>
+
+        <form name='search' action='/search'>
+            <input name='searchInput'>
+            <button type='submit'>Search</button>
+
+            <label for='City'>Base of Operations:
+                <select name='city' id='city'>
+                    <option value='' selected>Choose a City</option>
+                    <option value='Metropolis'>Metropolis</option>
+                    <option value='Gotham City'>Gotham City</option>
+                    <option value='Keystone City'>Keystone City</option>
+                    <option value='Coast City'>Coast City</option>
+                    <option value='Star City'>Star City</option>
+                </select>
+            </label>
+           
+            <label for='origin'>Origin Story:
+                <textarea id='origin' name='origin' rows='20' cols='60'></textarea>
+            </label>
+
+            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32 required>
+
+        </form>
+
+      
+        <script>
+            console.log("script");
+            
+            let forms = document.getElementsByTagName('form');
+    
+            
+    
+            const form = document.forms['search'];
+            form.addEventListener ('submit', search, false);
+            const input = form['searchInput']
+            //input.addEventListener('focus', () => alert('focused'), true);
+            function search() {
+            alert(' Form Submitted');
+            }
+            input.value = 'Search Here';
+
+            input.addEventListener('focus', function(){
+            if (input.value==='Search Here') {
+            input.value = '' 
+            }
+            }, false);
+            input.addEventListener('blur', function(){
+            if(input.value === '') {
+            input.value = 'Search Here';
+            } }, false);
+            
+            const label = form.querySelector('label');
+
+
+            form.addEventListener('submit',validate,false);
+function validate(event) {
+    const firstLetter = form.heroName.value[0];
+    if (firstLetter.toUpperCase() === 'X') {
+        event.preventDefault();
+        alert('Your name is not allowed to start with X!');
+    }
+}
+const error = document.createElement('div');
+error.classList.add('error');
+error.textContent = '! Your name is not allowed to start with X.';
+label.append(error);
+const heroInput = form['heroName'];
+heroName.addEventListener('onkeyup',validateInline, false);
+function validateInline() {
+    const heroName = this.value.toUpperCase();
+    if(heroName.startsWith('X')){
+    error.style.display = 'block';
+    } else {
+    error.style.display = 'none';
+    }
+}
+
+          </script>
+    </body>
+</html>

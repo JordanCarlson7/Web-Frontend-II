@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="#">
+        <script type="text/javascript" src="#"></script>
+    </head>
+    <body>
+        <a href="index.html">Back</a>
+        <h1>Notes</h1>
+
+        <h2>Chapter 8 forms</h2>
+        <ul>
+            <li> You can add an event listenter for the submit for other things to happen instead of only submitting a form</li>
+            <li><code>input type="password"</code> allows for text to be hidden when typed</li>
+            <li>naming groups of things the same puts them in a collection, ex. checkboxes all with the same name</li>
+            <li>use of hidden inputs is common to send data the user previoussly provided</li>
+            <li>Validate on both the client and the server whatever the user enters in</li>
+            <li>you can disable and enable buttons at any time</li>
+        </ul>
+
+        <h2>Chapter 12 Object Oriented Programming</h2>
+        <ul>
+            
+            <li><b>Encapsulation:</b> The user does not need to know what is happening internally</li>
+            <li><b>Polymorphism:</b> Same processes can be used by different objects</li>
+            <li><b>Inheritance</b> Takes methods and properties from an already existing object</li>
+            <li><b>Classes</b> Define a blueprint for an object</li>
+            <li>Constructors: <code>const redDice = new Dice;</code> = <code>const redDice = new Dice();</code></li>
+            <li><code>const Dice = function(sides=6){<br>
+                this.sides = sides;<br>
+                this.roll = function() {<br>
+                    return Math.floor(this.sides * Math.random() + 1)<br>
+                }<br>
+            }<br></code></li>
+            <li><code>instanceof</code> will tell you whether a object is of the object</li>
+            <li><code>class Dice {<br>
+                constructor(sides=6) {<br>
+                    this.sides = sides;<br>
+                }<br>
+                roll() {<br>
+                    return Math.floor(this.sides * Math.random() + 1)<br>
+                }<br>
+            }<br></code></li>
+            <li>You can use a <code>Copy Constructor</code> by using a currently existing objects <code>.constructor</code> property</li>
+            <li>Static methods are not available to instances of the class. They are call from the Class itself</li>
+            <li>Access a classes prototype to add methods and properties <code>Turtle.prototype.attack = </code></li>
+            <li>You  can see what the current Class prototype is with <code>raph.constructor.prototype;</code></li>
+            <li>Any updates to a class prototype will update all existing and futute instances</li>
+            <li>A golden rule to remember is:Never use arrays or objects as a default value in prototype.</li>
+            <li>prototype chain shows inheritance heirarchy</li>
+            <li>Why use enumerable?</li>
+            <li><code>extends</code> allows class to inherit another class, <code>super</code> refers to a classes parent class</li>
+            <li>What is the difference between create() and a constructor?</li>
+            <li>Set up the initial values w/o manually setting them<code>Superhuman.init = function(name,realName){ <br>
+                this.name = name;<br>
+                this.realName = realName;<br>
+                this.init = undefined; // this line removes the init function, so it can only be called once<br>
+                return this;<br>
+            }<br></code></li>
+            <li>Mix object B into object A 
+                <code>const a = {};<br>
+                const b = { name: 'JavaScript' };<br>
+                Object.assign(a,b);<br>
+                { name: 'JavaScript' }<br>
+                a.name =='JavaScript'<br></li>
+            <li>Be aware of copies by reference which change in all associated objects</li>
+            <li>Deep copies are to eliminate issues with objects referencing each other</li>
+            <li>use mixin when you don't want to copy by reference</li>
+            <li>A factory is a constructor for making customized (mixedin) types of the chosen classes</li>
+            <li>mixins can be used when inheritanced isn't desried</li>
+            <li>Methods that return this can execute their function and be chained to another method</li>
+            <li>Solve the "this" scope problem use a "that" or use the for-of loop and arrow functons<br><code>superman.findFriends = function(){<br>
+                const that = this;<br>
+                this.friends.forEach(function(friend) {<br>
+                    console.log(`${friend.name} is friends with ${that.name}`);<br>
+                }<br>
+                );<br>
+            }<br>
+            </code></li>
+            <li>keep classes 'skinny' simple</li>
+
+            <h2>Ch 15 Modular programming</h2>
+            <li>import custom library of functions <code>import  { mean, variance } from './stats.js';</code> use export directive in file and label exportable properties</li>
+            <li>default exports don't have to be named in import directive</li>
+            <li>Only 1 default export</li>
+            <li>require can grab functions from other files and rename to whatever you want in the current scope</li>
+        </ul>    
+        </body>
+</html>
+
+
+
