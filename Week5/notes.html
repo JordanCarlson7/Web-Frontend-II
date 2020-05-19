@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="#">
+        <script type="text/javascript" src="#"></script>
+    </head>
+    <body>
+        <a href="index.html">Back</a>
+        <h1>Notes</h1>
+
+        <h2>Errors, exceptions, and warnings</h2>
+        <ul>
+            <li>Use <code>Stack Traces</code> to trail your code to find errors</li>
+            <li>Error: will stop Javascript from running or even compiling</li>
+            <li>Warning: code will still run, although possibly incorrectly, (not bad enough to crash</li>
+        </ul>
+
+        <h2>The importance of testing and debugging</h2>
+        <ul>
+            <li>Strict Mode: labels 'poor coding style' as Errors, increases ability to find errors</li>
+            <li>Add <code>'use strict';</code> to the first line of js file to enable, or first line of function to apply to that scope only</li>
+            <li>Use Linting tools to enforece style guides</li>
+            <li><code>Feature Detection</code> method is to see if something exists first before using it</li>
+            <li><code>if (window.holoDeck) {<br>
+                virtualReality.activate();<br>
+            }<br></code></li>
+            <li></li>
+        </ul>
+
+        <h2>Debugging in the browser</h2>
+        <ul>
+            <li>Alerts, and Console.log()</li>
+            <li><code>debugger;</code> Place in code anywhere you want a BREAKPOINT to occur, hit play to rerun code in browser</li>
+            <li></li>
+        </ul>
+
+        <h2>Error objects</h2>
+        <ul>
+            <li>You can create your own error objects for specific uses of your program</li>
+            <li>Error objects can be thrown and caught</li>
+            <li></li>
+        </ul>
+
+        <h2>Throwing exceptions</h2>
+        <ul>
+            <li><code>function squareRoot(number) {<br>
+                'use strict';<br>
+                if (number < 0) {<br>
+                    throw new RangeError('You can't find the square root of negative numbers')<br>
+                }<br>
+                return Math.sqrt(number);<br>
+            };<br></code></li>
+            <li>use <code>try</code> blocks to run code and gracefully handle errors</li>
+            <li><code>function imaginarySquareRoot(number) {<br>
+                'use strict';<br>
+                try {<br>
+                    return String(squareRoot(number));<br>
+                } catch(error) {<br>
+                    return squareRoot(-number)+'i';<br>
+                }<br>
+            }<br></code></li>
+            <li>finally {<br>
+                return `+ or - ${answer}`;<br>
+            }<br></li>
+        </ul>
+
+        <h2>Tests</h2>
+        <ul>
+            <li>Use TDD, write tests before you code and then code to pass the tests</li>
+        </ul>
+
+        <h2>Testing frameworks</h2>
+        <ul>
+            <li>Jest</li>
+            <ul>
+                <li><code>npm install -g jest</code></li>
+                <li><code>jest -v</code></li>
+                <li><code>test('square root of 4 is 2', () => {<br>
+                    expect(squareRoot(4)).toBe(2);<br>
+                    });<br></code></li>
+                    <li><code>jest -c {}</code></li>
+                    <li>This will display the results of the jest test</li>
+            </ul>
+            <li>Jest has to be used in a Javascript file, not html</li>
+            <li></li>
+        </ul>
+
+        </body>
+</html>
+
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 05
+            
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+        <style>
+            
+        </style>
+
+
+
+    </head>
+    <body>
+    
+
+
+        <script>
+            'use strict';
+
+            function isPrime(n) {
+            return factorsOf(n).length === 2;
+            }
+
+            function factorsOf(n) {
+            const factors = [];
+                for (let i=1, max = Math.sqrt(n); i <= max; i++) {
+                    if (n%i === 0){
+                    factors.push(i, n/i);
+                    }
+            }
+                return factors;
+            }
+
+            test('factors of 12', () => {
+            expect(factorsOf(12)).toEqual([1,2,3,4,6,12]);
+            });
+
+
+            it('should throw an exception for non-numerical data', () => {
+            expect(factorsOf('twelve').toThrow());
+            });
+            it('should throw an exception for negative numbers', () => {
+            expect(() => factorsOf(-2)).toThrow();
+            });
+            it('should throw an exception for non-integer numbers', () => {
+            expect(() => factorsOf(3.14159)).toThrow();
+            });
+
+            test('non-numerical data returns not prime', () => {
+            expect(isPrime('two')).toBe(false);
+            });
+            test('non-integer numbers return not prime', () => {
+            expect(isPrime(1.2)).toBe(false);
+            });
+            test('negative numbers return not prime', () => {
+            expect(isPrime(-1)).toBe(false);
+            });
+        </script>
+
+
+
+    </body>
+</html>
