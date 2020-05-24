@@ -45,6 +45,7 @@ const hikeList = [
     }
 
     getHikeByName(hikeName){
+      console.log("MODEL: " + hikeName);
       // filter the hikes for the record identified by hikeName and return it
       const theHike = hikeList.find(hike => hike.name == hikeName);
       console.log(theHike);

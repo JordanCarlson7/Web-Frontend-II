@@ -2,6 +2,7 @@ import HikeModel from './HikeModel.js';
 import HikesView from './HikesView.js';
 
 export default class HikesController {
+
     constructor(parentId){
         this.parentElement = document.getElementById(parentId);
         this.hikeModel = new HikeModel();
@@ -17,7 +18,23 @@ export default class HikesController {
         this.hikesView.renderOneHikeLight(desiredHike);
     }
     addHikeListener(){
-        document.getElementById('hikes');
+        let hikes = document.getElementById('hikes');
+        let hikeNames = hikes.getElementsByTagName('h2');
+        let hikeDivs = hikes.getElementsByTagName('div');
+        console.log(hikeNames);
+        console.log(hikeDivs);
+        let thatHikeView = this.hikesView;
+        let thatHikeModel = this.hikeModel;
+            for (var i = 0;i < hikeNames.length; i++){
+                console.log("here " + hikeNames[i].innerHTML);
+                let desiredHike = thatHikeModel.getHikeByName(hikeNames[i].innerHTML);
+                hikeDivs[i].addEventListener('click', function(){thatHikeView.renderOneHikeFull(desiredHike)}, true);
+                //thatHikesView.renderOneHikeLight(desiredHike);
+            }    
+        
+            
+            
+            
         
     }
 }

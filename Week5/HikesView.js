@@ -54,8 +54,8 @@ export default class HikesView {
     renderOneHikeFull(hike, parentElement) {
         // this method will be used to one hike with full detail...you will need this for the stretch goal! 
         
-        var node = document.createTextNode(parentElement);
-        var childNode = document.createTextNode("fullHike");
+       // var node = document.createTextNode(parentElement);
+        //var childNode = document.createTextNode("fullHike");
         
         let displayedHike = `<div class="hike">
         <h2>${hike.name}</h2>
@@ -68,7 +68,9 @@ export default class HikesView {
         </ul>
         </div>`;
         
-        childNode.innerHTML = displayedHike;
-        node.appendChild(childNode);
+        //childNode.innerHTML = displayedHike;
+        //node.appendChild(childNode);
+        
+        document.getElementById('hikes').innerHTML = displayedHike;
     }
 }
