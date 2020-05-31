@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ToDo Application</title>
+        <link rel="stylesheet" tpye="text/css" href="toDo.css">
+        <script src="toDo.js"></script>
+    </head>
+    <body>
+        <h1>ToDo List</h1>
+      <div id="list">
+          <div id="tasks"></div>
+          <div id="tagBar">
+              <h4 id="remaining"></h4>
+              <button type="button" id="all" class="filter" onclick="changeFilter(this.id)">ALL</button>
+              <button type="button" id="active" class="filter" onclick="changeFilter(this.id)">ACTIVE</button>
+              <button type="button" id="completed" class="filter" onclick="changeFilter(this.id)">COMPLETED</button>
+
+          </div>
+      </div>
+      <div id="addTask">
+          <input type="text" value="" id ="taskInput" placeholder="New Task...">
+          <button type="button" onclick="addTask()">Add</button>
+      </div>
+
+
+
+      <!--list item flex row -->
+    </body>
+</html>

@@ -1,0 +1,92 @@
+body{
+    background-color: crimson;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+#tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.task {
+    margin-bottom: 5px;
+    border:solid 1px black;
+    box-shadow: 1px 1px 20px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+h1 {
+    font-family: monospace;
+    font-size:xxx-large
+}
+
+h4 {
+    font-size: x-large;
+}
+
+input {
+    margin: 5px;
+    width: 50%;
+    height: 60px;
+    font-size: xxx-large;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+#tagBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    border: solid 1px black;
+    box-shadow: 1px 1px 20px black;
+    background-color: aliceblue;
+    margin: 0;
+
+}
+
+#addTask {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    margin-top: 5px;
+}
+
+#taskInput {
+    background-color: aliceblue;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+button{
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px;
+    min-width: 50px;
+    font-family:monospace;
+    font-size: larger;
+    background-color:grey;
+}
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
