@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="#">
+    <script type="text/javascript" src="#"></script>
+</head>
+
+<body>
+    <a href="index.html">Back</a>
+    <h1>Notes</h1>
+    <h2>Function properties and methods</h2>
+    <ul>
+        <li>Function length is = to the number of parameters</li>
+        <li><i>function</i>.call(<i>object</i>) enables <code>this</code> within <i>function</i> to be the <i>object</i>
+            passed</li>
+        <li>when using <code>function.call()</code> you need to pass the first parameter as a object or null</li>
+        <li>apply() does the same but parameters after null/object have to be an array</li>
+        <li><b>call() and apply() basically make a function more flexible by enabling any object to use it</b></li>
+    </ul>
+    <li><code>square.cache = square.cache || {};</code> assign a blank object if not already assigned, later you can add
+        indexed items into the object</li>
+
+    <h2>Immediately Invoked function expressions</h2>
+    <ul>
+        <li> IIFY's wrap function(){} in parentheses to have it Immediately invoke the function, useful for scope
+            protection, variables defined in scope don't exist out of scope</li>
+        <li> can be useful for initialization code that doesn't need to be used again</li>
+        <li><code>(function() {<br>
+            'use strict';<br>
+        // All your code would go inside this function, for when you want to use strict and share code<br>
+        })();<br></code></li>
+        <li>Can be useful for testing</li>
+        <li> Functions can be treated like variables without the ()</li>
+    </ul>
+    <h2>Self-defining functions</h2>
+    <ul>
+        <li> Basically a function you need to do 1 thing once and a seperate thing every other time</li>
+        <li> checking to see if something exists first and then doing 1 of multiple options dependent on outcome</li>
+    </ul>
+    <h2>Recursive functions</h2>
+    <ul>
+        <li>A function that inovkes itself, useful for iterative processes</li>
+    </ul>
+    <h2>Callbacks</h2>
+    <li> but a callback always has to wait for the current execution stack to complete before it’s invoked. In this
+        case, the current execution stack is the rest of the function and code already entered in the console. Once
+        these have executed, the callback is invoked before handing control back to the main program.</li>
+    <h2>Promises</h2>
+    <ul>
+        <li>Promise is initiated and then pending, its resolved/rejected based on the outcome, similar to callback</li>
+    </ul>
+    <ul>
+        <li><code>const dice = {<br>
+    sides: 6,<br>
+    roll() {<br>
+        return Math.floor(this.sides * Math.random()) + 1;<br>
+    }<br>
+}<br></code></li>
+        <li>
+            <code>const promise = new Promise( (resolve,reject) => {<br>
+        const n = dice.roll();<br>
+        setTimeout(() => {<br>
+            (n > 1) ? resolve(n) : reject(n);<br>
+        }, n*1000);<br>
+    });<br></code>
+        </li>
+    </ul>
+
+    <li>Basically it is async function that can have two different outcomes. its an if else thats delayed to occur
+        "asynchronously"</li>
+    <li>.then()is success .cath() is reject</li>
+    <li>promises help organize callback hell</li>
+
+    <h2>Async functions</h2>
+    <ul>
+        <li>await is used to ensure a function has occured before moving to the next line of code, label the function
+            async</li>
+        <li><code>function random(a,b,callback) {<br>
+        if (b === undefined) b = a, a = 1; // if only one argument is supplied, assume the lower limit is 1<br>
+            const result = Math.floor((b-a+1) * Math.random()) + a<br>
+        if(callback) {<br>
+            result = callback(result);<br>
+        }<br>
+        return result;<br>
+    }</code></li>
+    </ul>
+    <h2>Functions that return functions</h2>
+
+    <h2>Closures</h2>
+    <ul>
+        <li>a function within a block has acess to all variables of the block. Even if the inner function is returned to
+            another scope (making the function assignable to a new variable, it will still have access to its original
+            block scope</li>
+             
+    </ul>
+
+    <h2>Introduction to functional programming</h2>
+
+    <h2>Currying</h2>
+
+
+</body>
+
+</html>
