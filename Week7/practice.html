@@ -43,6 +43,29 @@
         roll.then(result => console.log(`I rolled a ${result}`))
             .catch(result => console.log(`Drat! ... I rolled a ${result}`));
         console.log('After the roll');
+
+
+        /*non-curry*/
+        function multiplier(x, y) {
+            return x * y;
+        }
+        const tax = multiplier(0.22, 400);
+        /*Curry*/
+        function multiplier(x, y) {
+            if (y === undefined) {
+                return function (z) {
+                    return x * z;
+                }
+            } else {
+                return x * y;
+            }
+        }
+        calcTax = multiplier(0.22); //only sends first parameter so it the function returns a function
+    /*     function (z){
+            return x * z;
+    }*/
+    /*calcTax(400) produces 88 */
+
     </script>
 </body>
 

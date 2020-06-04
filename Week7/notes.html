@@ -94,13 +94,36 @@
         <li>a function within a block has acess to all variables of the block. Even if the inner function is returned to
             another scope (making the function assignable to a new variable, it will still have access to its original
             block scope</li>
-             
+
     </ul>
 
     <h2>Introduction to functional programming</h2>
 
     <h2>Currying</h2>
+    <ul>
+        <li> A function that accepts multiple parameters can return a similar function that requests the parameters the
+            original function never recieved</li>
+        <li> example: a function that multiplie 2 numbers but is only passed 1 number as a parameter<br>
+            This function could return a function that can later be used when the 2nd parameter is passed.</li>
+    </ul>
 
+    <h2>Ch. 13 AJAX</h2>
+    <ul>
+        <li><code>fetch(url)<br>
+            .then( response => response.blob() ); // transforms the data into a blob object<br>
+            .then( blob => console.log(blob.type) )<br>
+            .catch( error => console.log('There was an error: ', error))<br></code></li>
+        <li>fetch() is a basic function that takes a url and returns a response from the url</li>
+        <li>text() turns response into javascript string</li>
+        <li>blob() turns into blob object, used for raw data</li>
+        <li>json() turns into json object</li>
+        <li>You can create response objects and send them back as well as create requests objects and send to using
+            fetch()</li>
+        <li>In this function, we create a new FormData instance using the FormData() constructor function and provide
+            the form as an argument. This does all the hard work of creating the task object for us.</li>
+        <li>$.ajax('http://numbersapi.com/random')<br>
+            .done(text => outputDiv.innerHTML = text );<br></li>
+    </ul>
 
 </body>
 
