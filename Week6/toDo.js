@@ -25,7 +25,6 @@ function changeFilter(preference) {
             console.log('no filter, sorry bro');
             break;
     }
-    
 }
 
 function changeComplete(elementId) {
