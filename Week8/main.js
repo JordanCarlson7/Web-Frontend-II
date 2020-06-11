@@ -46,7 +46,24 @@ function displayData(res) {
 
     function getDetails(id, url) {
         fetch(url + "/" + id)
-        .then(console.log(url + "/" + id));
+        .then(response => response.json())
+        .then(json => {displayDetails(json);})
+    }
+    function displayDetails(json) {
+        const pokemonDet = document.getElementById('details');
+        let name = document.createElement('h3');
+        let img = document.createElement('img');
+        let moves = document.createElement('ul');
+        name.innerText = json.forms[0].name;
+        img.src = json.sprites.front_shiny;
+        json.moves.forEach(element => {
+            let li = document.createElement('li');
+            li.innerText = element.move.name;
+            moves.appendChild(li);
+        });
+        pokemonDet.appendChild(name);
+        pokemonDet.appendChild(img);
+        pokemonDet.appendChild(moves);
     }
     
 }
