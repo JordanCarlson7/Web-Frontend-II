@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="#">
+    <script type="text/javascript" src="#"></script>
+    <style>
+        .draganddrop .mc {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html">Back</a>
+    <a href="https://www.sitepoint.com/premium/books/html5-css3-for-the-real-world-2nd-edition/read/8">Sitepoint
+        book</a>
+    <h1>Notes</h1>
+
+    <h2>Css Transforms and Transistions Chapter 8</h2>
+    <h1>Some common functions</h1>
+    <ul>
+        <li><code>transform:</code></li>
+        <li>translate(x,y) moves along axis relative to location</li>
+        <li>scale(x,y) magnifies size of element, use display inline-blockk to protect flow and oerlap of nearby words
+            or elements</li>
+        <li>rotate (degrees), rotates the element</li>
+        <li>skew (xdeg, ydeg), skews x and y</li>
+        <li><code>transform-orign changes the origin of how an object transforms, default is center (50%, %50%) </code>
+        </li>
+        <li>The order of transform functions does matter: if you rotate before translating, your translate direction
+            will be on the rotated axis. The rightmost square in Figure 8.8 was translated then rotated with transform:
+            translateX(200px) rotate(135deg); . The leftmost square was rotated first then translated along the newly
+            rotated axis: transform: rotate(135deg) translateX(200px); .</li>
+    </ul>
+    <h2>Transistions</h2>
+    <ul>
+        <li>1. Declare the original state of the element in the default style declaration.</li>
+
+        <li>2. Declare the final state of your transitioned element; for example, a :hover state.</li>
+
+        <li>3. Include the transition functions in your default style declaration using the transition properties,
+            including: transition-property , transition-duration , transition-timing-function , and transition-delay .
+            We’ll look at each of these and how they work shortly.</li>
+        <li><code>transition-property: transform, color;</code> you also need to specify the duration in seconds (0.2s)
+        </li>
+        <li>transition-timing-function: acceleration of transition, not just time it takes</li>
+        <a href="https://cubic-bezier.com/#.29,.54,.86,.44">customize your transition-timing-function</a>
+        <li><code>transition-delay: 50ms, negative delays start a portion into the transition</code></li>
+        <li>shorthand transition: transform 0.2s ease-out 50ms;</li>
+        <li> you can comma seperate for multiple transitions on the same declaration</li>
+        <li> transitionend event occurs when it ends and when it returns to default</li>
+    </ul>
+    <h2>Animate</h2>
+    <ul>
+        <li> CSS is better for low power processores (i.e. Smart Phones) Save complex JS animations for more powerful
+            devices</li>
+        <li><code>@keyframes moveRight { <br>
+            from {<br>
+            transform: translateX(-50%);<br>
+            }<br>
+            to {<br>
+            transform: translateX(50%);<br>
+            }<br>
+        }<br>
+        @keyframes appearDisappear { <br>
+            0%, 100% {<br>
+            opacity: 0;<br>
+            }<br>
+            20%, 80% {<br>
+            opacity: 1;<br>
+            }<br>
+        }<br>
+        @keyframes bgMove {<br>
+            100% {<br>
+            background-position: 120% 0;<br>
+            }<br>
+        }<br></code></li>
+        <li>label animations with <code>animation-name: </code> in CSS</li>
+        <li>functions for animations and transitions have synonomous naming</li>
+        <li> move an image from left to right to animate it, cycling man image of 4 pictures connected then use
+            <code>animation-timing-function: steps(4, end);</code></li>
+        <li><code>animation-iteration-count: infinite;</code></li>
+    </ul>
+    <h2>Canvas, SVG, and Drag and Drop</h2>
+    <ul>
+        <li>coordinates: the top-left corner is (0,0). If the canvas is 200 pixels by 200 pixels, then the bottom-right
+            corner is (200,200), </li>
+        <li><code>function drawPattern() {<br>
+            …<br>
+            var img = new Image();<br>
+            img.src = "../images/bg-bike.png";<br>
+            img.onload = function() {<br>
+            var pattern = context.createPattern(img, "repeat"); <br>
+            context.fillStyle = pattern;                      <br>  
+            context.fillRect(10, 10, 100, 100);              <br>    
+            context.strokeRect(10, 10, 100, 100);           <br>  
+            };<br>
+        }<br></code></li>
+        <li>When you beginPath() you need to later closePath() and then specifiy its looks</li>
+        <li>Save a canvas drawing and open in a new tab<br>
+            <code>function saveDrawing() {<br>
+            var canvas5 = document.getElementById("demo5");<br>
+            window.open(canvas5.toDataURL("image/png"));<br>
+        }<br></code></li>
+        <li> Canvas allows you to manipulate an img once it is placed in a canvas instead of just an img tag</li>
+        <li>getImageData returns ImageData object: width, height, data, data is an array of each pixel and each element
+            is RGBA numerics</li>
+        <li>To test manipulation of img pixels you need to run a localserver, cross-origin security issues</li>
+        <li><code>
+            //Get the entire canvas from point 0,0 to 200,200 <br>
+            var imageData = context.getImageData(0, 0, 200, 200);<br>
+    
+            var red, green, blue, greyscale;<br>
+            
+            //increment by 4 because each rgba is 4 locations in the array<br>
+            for (var i = 0; i < imageData.data.length; i += 4) {<br>
+            red = imageData.data[i];<br>
+            green = imageData.data[i + 1];<br>
+            blue = imageData.data[i + 2];<br>
+
+            //change all of the colors to grey scale<br>
+            var grayscale = red * 0.3 + green * 0.59 + blue * 0.11;<br>
+        
+            //chang the data of the array<br>
+            imageData.data[i] = grayscale;<br>
+            imageData.data[i + 1] = grayscale;<br>
+            imageData.data[i + 2] = grayscale;<br>
+            } 
+
+            //put the array back into the img<br>
+            context.putImageData(imageData, 0, 0);    <br>
+        <br>
+        }<br></code></li>
+        <li>for videos, store the pixelData in an aboject instead of imdData.data, it helps with performance and less
+            propety look ups</li>
+        <li>use try catches</li>
+        <li><code>function draw(video, context, canvas) {<br>
+    if (video.paused || video.ended) <b>return false</b>;<br>
+    <br>
+    drawOneFrame(video, context, canvas);<br>
+    <br>
+    // Start over!<br>
+    setTimeout(function(){ draw(video, context, canvas); }, 0);<br>
+}<br></code></li>
+    </ul>
+    <h2>SVG</h2>
+    <ul>
+        <li>This is an SVG circle<br>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+                <circle cx="100" cy="100" r="25" fill="red" />
+                <rect x="10" y="10" width="100" height="100" fill="blue" stroke="red" stroke-width="3" />
+            </svg> </li>
+        <li>SVG files are stored in file browser</li>
+        <li>Raphael is a library that makes creating SVG images better and easier to create in browser</li>
+        <li>In summary, if you need to paint pixels to the screen and have no concerns about the ability to retrieve and
+            modify your shapes, canvas is probably the better choice. If, on the other hand, you need to be able to
+            access and change specific aspects of your graphics, SVG might be more appropriate.</li>
+    </ul>
+    <h2>Drag and Drop</h2>
+    <ul>
+        <li>Steps:
+            <ul>
+                <li>Set the draggable attribute on any HTML elements you’d like to be draggable.</li>
+
+                <li> Add an event listener for the dragstart event on any draggable HTML elements.</li>
+
+                <li>Add an event listener for the dragover and drop events on any elements that you want to have accept
+                    dropped items.</li>
+                <li></li>
+            </ul>
+        </li>
+        <li>
+            <article id="ac3">
+                <h1>Wai-Aria? HAHA!</h1>
+                <h2 id="catHeading">Form Accessibility</h2>
+
+                <img data-src="https://learnable-static.s3.amazonaws.com/premium/reeedr/books/html5-css3-for-the-real-world-2nd-edition/images/cat.png"
+                    id="cat" alt="WAI-ARIA Cat">
+
+                <div class="content">
+                    <p id="mouseContainer" class="mc">
+                        <img data-src="https://learnable-static.s3.amazonaws.com/premium/reeedr/books/html5-css3-for-the-real-world-2nd-edition/images/computer-mouse-pic.svg"
+                            ↵alt="mouse treat" id="mouse1" draggable="true">
+                        <img data-src="https://learnable-static.s3.amazonaws.com/premium/reeedr/books/html5-css3-for-the-real-world-2nd-edition/images/computer-mouse-pic.svg"
+                            ↵alt="mouse treat" id="mouse2" draggable="true">
+                        <img data-src="https://learnable-static.s3.amazonaws.com/premium/reeedr/books/html5-css3-for-the-real-world-2nd-edition/images/computer-mouse-pic.svg"
+                            ↵alt="mouse treat" id="mouse3" draggable="true">
+                    </p>
+        </li>
+    </ul>
+    <script>
+        var mice = document.querySelectorAll("#mouseContainer img");
+        var mouse = null;
+        var cat = document.getElementById("cat");
+        var catHeading = document.getElementById('catHeading');
+        cat.addEventListener("dragover", function (event) {
+            event.preventDefault();
+        });
+        cat.addEventListener("drop", function (event) {
+            var mouseHash = {
+                mouse1: 'NOMNOMNOM',
+                mouse2: 'Meow',
+                mouse3: 'Purrrrrr ...'
+            };
+            var mouseID = event.originalEvent.dataTransfer.getData("text/plain");
+            catHeading.innerHTML = mouseHash[mouseID];
+            var mousey = document.getElementById(mouseID);
+            mousey.parentNode.removeChild(mousey);
+            event.preventDefault();
+        });
+        for (var i = 0; i < mice.length; i++) {
+            mouse = mice[i];
+            mouse.addEventListener('dragstart', function (event) {
+                // handle the dragstart event
+                event.dataTransfer.setData("text/plain", this.id);
+            });
+        }
+    </script>
+</body>
+
+</html>

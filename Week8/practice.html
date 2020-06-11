@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Week 04</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .myCanvas {
+            border: dotted 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Practice Sandbox</h1>
+
+    <canvas id="myCanvas" class="myCanvas" width="200" height="200">
+        Sorry! Your browser doesn’t support Canvas.
+    </canvas>
+    <button type="button" onclick="drawCircle()">Circle</button>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        context.strokeStyle = "red";
+        context.fillStyle = "blue";
+        var gradient = context.createLinearGradient(0, 0, 0, 200); 
+        gradient.addColorStop(0, "blue");
+        gradient.addColorStop(1, "red");
+        context.fillRect(10, 10, 100, 100);   
+context.strokeRect(10, 10, 100, 100);
+function drawCircle() {
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    context.beginPath();
+    context.arc(50, 50, 30, 0, Math.PI*2, true);
+    context.closePath();
+    context.strokeStyle = "red";
+    context.fillStyle = "blue";
+    context.lineWidth = 3;
+    context.fill(); 
+    context.stroke(); 
+}
+    </script>
+</body>
+
+</html>
