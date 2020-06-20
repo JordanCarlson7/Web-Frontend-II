@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="#">
+    <script type="text/javascript" src="#"></script>
+</head>
+
+<body>
+    <a href="index.html">Back</a>
+    <h1>Notes</h1>
+    <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/9">SitePoint Book</a>
+    <h2>Browser Object Model</h2>
+    <ul>
+        <li>DEFINITION: The Browser Object Model (or BOM for short) is a collection of properties and methods that
+            contain information about the browser and computer screen. For example, we can find out which browser is
+            being used to view a page (though, this method is unreliable). We can also find out the dimensions of the
+            screen it is viewed on, and which pages have been visited before the current page. It can also be used for
+            the rather dubious practice of creating pop-up windows, if you’re into annoying your users.</li>
+        <li>
+            WINDOW OBJECT: These properties and methods are made available through the window object. Every browser
+            window, tab, popup, frame, and iframe has a window object.
+        </li>
+        <li>Global variables: Created without variable keywords (let, var, const)</li>
+        <li>window.alert, confirm, prompt bring up dialog boxes</li>
+        <li>window.navigator then use .userAgent is the browser info</li>
+        <li>LOCATION: The window.location property is an object that contains information about the URL of the current
+            page. It contains a number of properties that provide information about different fragments of the URL.</li>
+        <li>.href or .protocol .host .hostname .pathname .search .port .hash .origin</li>
+        <li>window.history to see history .go is to move through the history deque 1 0 or -1</li>
+        <li>Window.open(URL) will open a new window</li>
+        <li><code>const popup = window.open('https://sitepoint.com','
+                SitePoint','width=400,height=400,resizable=yes');
+                </code></li>
+        <li>window.screen</li>
+        <li>The Screen object has more uses for mobile devices. It also allows you to do things like turn off the
+            device’s screen, detect a change in its orientation or lock it in a specific orientation.</li>
+        <li>document.write('') will add text or elements to page</li>
+        <li>COOKIES: Cookies can be used for personalizing a user’s browsing experience, storing user preferences,
+            keeping track of user choices (such as a shopping cart), authentication and tracking users. The use of
+            cookies for tracking purposes has been much maligned in recent years. Their use for data storage is starting
+            to be replaced in many cases by the new HTML5 localStorage API as it allows more data to be stored. This is
+            covered in Chapter 14. Cookies are still useful for retaining state information (such as if a user is logged
+            in) because they’re passed between the client and server on every HTTP request.</li>
+        <li>cookies use name=value pairs</li>
+        <li>document.cookie</li>
+        <li><code>const cookies = document.cookie.split("; ");<br>
+                for (crumb of cookies){<br>
+                    const [key,value] = crumb.split("=");<br>
+                    console.log(`The value of ${key} is ${value}`);<br>
+                }<br>
+                </code></li>
+        <li>cookies have an expiration date that you can change but don't rely on it</li>
+        <li>HTTPS add 'secure' to end of cookie string to allow it only to be transmitted over HTTPS</li>
+        <li>Deleting cookies occurs by setting the exipration date to be in the past</li>
+        <li>window.setTimeout(function, time in milliseconds)</li>
+        <li>clearTimeOut will clear it</li>
+        <li>setInterval() will make something happen every amount of time has passed (function, time)</li>
+        <li>clearInterval() stops it</li>
+        <li>bind this to a local that variabel</li>
+        <li>GLOBAL SCOPE IS THE WINDOW OBJECT, METHODS OF WINDOW OBJECT IN GLOBLE SCOPE DON'T USE window.function THEY
+            JUST USE function</li>
+        <li> all of these functions return an <code>id</code> which can then be sent in the cancelation functions
+            parameter to know which thing to cancel</li>
+        <li><code>requestAnimationFram()</code> takes a callback function as to how to animate, cannot set frame rate
+        </li>
+        <li>Depending on what you need to do, CSS is quicker and easier for animations (less processing than Javascript)
+        </li>
+    </ul>
+
+    <h2>HTML5 APIs</h2>
+    <ul>
+        <li>Start with data- .
+
+            Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.
+
+            Include an optional string value.</li>
+        <li>const superman = document.getElementById('hero');
+            const powers = superman.dataset.powers;</li>
+        <li>The Geolocation API is used to obtain the geographical position of the device</li>
+        <li>navigator.geolocation.getCurrentPosition(youAreHere);</li>
+        <ul>
+            <li> position.speed property returns the ground speed of the device in meters per second.</li>
+
+            <li>position.altitude property returns an estimate of the device’s altitude in meters above
+                theWGS84ellipsoid, which is a standard measurement for the center of the Earth.</li>
+
+            <li>position.heading property returns the direction the device is moving in. This is measured as a bearing
+                in degrees, clockwise from North.</li>
+
+            <li></li>position.timestamp property returns the time that the position information was recorded</li>
+        </ul>
+        <li>const worker = new Worker('task.js'); use theses to run major background processes, an entire js file</li>
+        <li>Websocket is a new protocol that allows two-way communication with a server – also known as push messaging.
+            This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are
+            received.</li>
+
+            <li><code>const URL = 'wss://echo.websocket.org/';
+                const outputDiv = document.getElementById('output');
+                const form = document.forms[0];
+                const connection = new WebSocket(URL);</code></li>
+    </ul>
+</body>
+
+</html>
