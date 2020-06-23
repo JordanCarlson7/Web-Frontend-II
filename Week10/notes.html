@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="#">
+    <script type="text/javascript" src="#"></script>
+</head>
+
+<body>
+    <a href="index.html">Back</a>
+    <h1>Notes</h1>
+    <h2>Client side form validation</h2>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">Developer Mozilla</a>
+    <ul>
+        <li>Pattern, specifiy the regex pattern required in that input field</li>
+        <li>:valid and :invald css pseudo-classes</li>
+        <li>use javascript to customize errors</li>
+        <li>validity property has many internal boolean properties to show
+            <code>validity.tooShort,rangeOver,valid etc.</code></li>
+        <li></li>
+    </ul>
+    <h2>Using Fetch</h2>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Developer Mozilla</a>
+    <ul>
+        <li>Request goes in parameter of fetch and response is returned</li>
+        <li>You can create your own request objects instead of just sending a PATH<br>
+            <code>const myHeaders = new Headers();<br>
+            <br>
+        const myRequest = new Request('flowers.jpg', {<br>
+          method: 'GET',<br>
+          headers: myHeaders,<br>
+          mode: 'cors',<br>
+          cache: 'default',<br>
+        });<br>
+        <br>
+        fetch(myRequest)<br>
+          .then(response => response.blob())<br>
+          .then(myBlob => {<br>
+            myImage.src = URL.createObjectURL(myBlob);<br>
+          });<br></code></li>
+        <li>You can send in another request object to request(), they both take the same parameters. same with
+            response()</li>
+        <li>A good practice is to check for the correct headers before processing them<br>
+            <code>fetch(myRequest)<br>
+            .then(response => {<br>
+               const contentType = response.headers.get('content-type');<br>
+               if (!contentType || !contentType.includes('application/json')) {<br>
+                 throw new TypeError("Oops, we haven't got JSON!");<br>
+               }<br>
+               return response.json();<br>
+            })<br>
+            .then(data => {<br>
+                /* process your data further */<br>
+            })<br>
+            .catch(error => console.error(error));<br></code></li>
+        <li>guards control what is mutable</li>
+        <li><code>const form = new FormData(document.getElementById('login-form'));<br>
+            fetch('/login', {<br>
+            method: 'POST',<br>
+            body: form<br>
+            });<br>
+            Both request and response (and by extension the fetch() function), will try to intelligently determine the
+            content type. A request will<br> also automatically set a Content-Type header if none is set in the
+            dictionary.<br></code></li>
+            <li>you can detect if a browser uses th fetch api,<code>if (window.fetch)</code> To use Fetch in unsupported browsers, there is a Fetch Polyfill available that recreates the functionality for non-supporting browsers.</li>
+    </ul>
+
+</body>
+
+</html>
