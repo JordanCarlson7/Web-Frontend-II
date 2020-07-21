@@ -1,0 +1,63 @@
+:root {
+    --background: #1b262c;
+    --primary:#0f4c75;
+    --secondary: #3282b8;
+    --accent: #bbe1fa;
+}
+
+body {
+    margin: 0px;
+    background-color: var(--background);
+    color: var(--accent);
+}
+h1 {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--accent);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 0px;
+}
+h2 {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: var(--primary) 2px solid;
+}
+ul {
+    margin-top: 20px;
+    list-style-type: none;
+    width: 100%;
+    text-align: left;
+}
+a {
+    display: flex;
+    flex-direction: row;
+    width:30%;
+    margin-left: 13px;
+    padding: 10px;
+    color: var(--accent);
+    background-color: var(--secondary);
+    text-decoration: none;
+    transform: skewX(-10deg);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: var(--accent) solid 2px; 
+    box-shadow: var(--primary) 2px 2px 5px;
+}
+a:hover {
+    color: var(--accent);
+    background-image: linear-gradient(to right, var(--secondary), var(--background));
+    animation-name: linkSelect;
+    animation-duration: .2s;
+    animation-fill-mode: both;
+}
+@keyframes linkSelect {
+    from {width: 30%; height:auto;}
+    to {width: 95%;}
+}
+li {
+    padding: 10px;
+}
